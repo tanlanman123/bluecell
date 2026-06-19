@@ -1,30 +1,18 @@
 [gd_scene format=3 uid="uid://coevnjbh42xg"]
 
-[ext_resource type="Texture2D" uid="uid://berfn8no00dxf" path="res://icon.svg" id="1_wtcfe"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_og2xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og2xu"]
+size = Vector2(25, 40)
 
 [node name="Node2D" type="Node2D" unique_id=1462337539]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=776629308]
-position = Vector2(404, 574)
-scale = Vector2(5, 1)
-texture = ExtResource("1_wtcfe")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1745114620]
+sprite_frames = SubResource("SpriteFrames_og2xu")
 
-[node name="Icon2" type="Sprite2D" parent="." unique_id=1972441277]
-position = Vector2(322, 225.00002)
-scale = Vector2(0.49218753, 0.14453122)
-texture = ExtResource("1_wtcfe")
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=680022506]
 
-[node name="Icon3" type="Sprite2D" parent="." unique_id=1737607016]
-position = Vector2(426, 218.00002)
-scale = Vector2(0.13085881, 1.1796874)
-texture = ExtResource("1_wtcfe")
+[node name="RigidBody2D" type="RigidBody2D" parent="AnimatedSprite2D" unique_id=433565497]
 
-[node name="Icon4" type="Sprite2D" parent="." unique_id=1435313790]
-position = Vector2(96, 462)
-scale = Vector2(2.578125, 1)
-texture = ExtResource("1_wtcfe")
-
-[node name="Icon5" type="Sprite2D" parent="." unique_id=2094030452]
-position = Vector2(724.5, 497)
-scale = Vector2(4.2109375, 1)
-texture = ExtResource("1_wtcfe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/RigidBody2D" unique_id=165180946]
+shape = SubResource("RectangleShape2D_og2xu")
