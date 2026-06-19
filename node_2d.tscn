@@ -15,6 +15,7 @@ size = Vector2(123, 204.18857)
 metadata/_edit_group_ = true
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1345941318]
+top_level = true
 position = Vector2(0, 140)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=737113337]
