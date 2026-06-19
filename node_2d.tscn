@@ -7,12 +7,12 @@ size = Vector2(25, 40)
 
 [node name="Node2D" type="Node2D" unique_id=1462337539]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1745114620]
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=1745114620]
 sprite_frames = SubResource("SpriteFrames_og2xu")
 
-[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=680022506]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=680022506]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="AnimatedSprite2D" unique_id=433565497]
+[node name="RigidBody2D" type="RigidBody2D" parent="Player" unique_id=433565497]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/RigidBody2D" unique_id=165180946]
+[node name="hitbox" type="CollisionShape2D" parent="Player/RigidBody2D" unique_id=165180946]
 shape = SubResource("RectangleShape2D_og2xu")
