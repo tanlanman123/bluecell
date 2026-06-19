@@ -1,20 +1,21 @@
 extends CharacterBody2D
 
-@export var speed: float = 250.0
-@export var jump_velocity: float = -400.0 #up is negative for some reason
-@export var gravity: float = 900.0
+const SPEED := 200.0
+const GRAVITY := 900.0
+const JUMP_VELOCITY := -350.0 #negative is up
+#variables
 
 func _physics_process(delta):
-	# Add gravity when the player is in the air
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY * delta
+		#checks if player is on the ground
 
-	# Move left and right with arrow keys.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	velocity.x = direction * speed
+	velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
+	#moves player with arrow keys
 
-	# Jump when the player presses the "z" button and is on the floor
 	if Input.is_action_just_pressed("press_z") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y = JUMP_VELOCITY
+		#makes player jump
 
 	move_and_slide()
+	#uses floor
