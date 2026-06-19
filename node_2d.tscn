@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://coevnjbh42xg"]
 
+[ext_resource type="Texture2D" uid="uid://dcolu18fprwdw" path="res://Untitled.png" id="1_wtcfe"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_og2xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wtcfe")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og2xu"]
-size = Vector2(25, 40)
+size = Vector2(123, 194)
 
 [node name="Node2D" type="Node2D" unique_id=1462337539]
 
 [node name="Player" type="AnimatedSprite2D" parent="." unique_id=1745114620]
+position = Vector2(2.026558e-06, -49)
+scale = Vector2(0.5365854, 0.5051546)
 sprite_frames = SubResource("SpriteFrames_og2xu")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=680022506]
@@ -15,4 +28,6 @@ sprite_frames = SubResource("SpriteFrames_og2xu")
 [node name="RigidBody2D" type="RigidBody2D" parent="Player" unique_id=433565497]
 
 [node name="hitbox" type="CollisionShape2D" parent="Player/RigidBody2D" unique_id=165180946]
+position = Vector2(-5.5540686e-06, 0)
+scale = Vector2(1, 0.9999997)
 shape = SubResource("RectangleShape2D_og2xu")
