@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dmqsldlk1yup6"]
+
+[ext_resource type="Texture2D" uid="uid://cvx837hhb2k23" path="res://assets/enemy placeholder.png" id="1_7p1mj"]
+
+[sub_resource type="GDScript" id="GDScript_0hol4"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 150.0
+const JUMP_VELOCITY = -200.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og2xu"]
+size = Vector2(119.27272, 208.35556)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5m1cd"]
+radius = 600.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1010637737]
+script = SubResource("GDScript_0hol4")
+
+[node name="placeholer" type="Sprite2D" parent="." unique_id=1065366453]
+scale = Vector2(0.53598595, 0.5000689)
+texture = ExtResource("1_7p1mj")
+
+[node name="EnemyHitbox" type="CollisionShape2D" parent="." unique_id=1625374175]
+position = Vector2(-1.3552527e-20, 1.4699707)
+scale = Vector2(0.5365854, 0.46555033)
+shape = SubResource("RectangleShape2D_og2xu")
+
+[node name="EnemyDetectionArea" type="Area2D" parent="." unique_id=874665610]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="EnemyDetectionArea" unique_id=940897086]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5m1cd")
+
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
