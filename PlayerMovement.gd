@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#connects player and scripts :)
 
 const SPEED := 200.0
 const GRAVITY := 900.0

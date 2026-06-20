@@ -34,19 +34,19 @@ scale = Vector2(12.828668, 1.4560012)
 texture = ExtResource("1_0hol4")
 offset = Vector2(0, 0.5)
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1061025155]
+[node name="player" type="CharacterBody2D" parent="." unique_id=1061025155]
 position = Vector2(0, -49)
 script = ExtResource("2_0e48y")
 
-[node name="placeholder" type="Sprite2D" parent="Player" unique_id=1346837176]
+[node name="placeholder" type="Sprite2D" parent="player" unique_id=1346837176]
 scale = Vector2(0.53598595, 0.5000689)
 texture = ExtResource("1_wtcfe")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=680022506]
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=680022506]
 position = Vector2(0, -49)
 scale = Vector2(0.5365854, 0.5051546)
 
-[node name="PlayerHitbox" type="CollisionShape2D" parent="Player" unique_id=165180946]
+[node name="PlayerHitbox" type="CollisionShape2D" parent="player" unique_id=165180946]
 position = Vector2(0, 0.5)
 scale = Vector2(0.5365854, 0.46555033)
 shape = SubResource("RectangleShape2D_og2xu")
@@ -64,8 +64,10 @@ position = Vector2(-1.3552527e-20, 1.4699707)
 scale = Vector2(0.5365854, 0.46555033)
 shape = SubResource("RectangleShape2D_og2xu")
 
-[node name="Area2D" type="Area2D" parent="Enemy" unique_id=646193351]
+[node name="EnemyDetectionArea" type="Area2D" parent="Enemy" unique_id=646193351]
 
-[node name="DetectionArea" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=710058627]
+[node name="DetectionArea" type="CollisionShape2D" parent="Enemy/EnemyDetectionArea" unique_id=710058627]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5m1cd")
+
+[connection signal="body_exited" from="Enemy/EnemyDetectionArea" to="Enemy" method="_on_enemy_detection_area_body_exited"]
