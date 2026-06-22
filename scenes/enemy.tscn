@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://dmqsldlk1yup6"]
 
 [ext_resource type="Texture2D" uid="uid://cvx837hhb2k23" path="res://assets/enemy placeholder.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://810010iovqak" path="res://scenes/VerySimpleAI.gd" id="1_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og2xu"]
-size = Vector2(119.27272, 208.35556)
+size = Vector2(111.81818, 36.451416)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5m1cd"]
 radius = 600.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1010637737]
+script = ExtResource("1_md0e3")
 
-[node name="placeholer" type="Sprite2D" parent="." unique_id=1065366453]
-scale = Vector2(0.53598595, 0.5000689)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065366453]
+position = Vector2(0, 39.999996)
+scale = Vector2(0.53598595, -0.10101711)
 texture = ExtResource("1_7p1mj")
 
 [node name="EnemyHitbox" type="CollisionShape2D" parent="." unique_id=1625374175]
-position = Vector2(-1.3552527e-20, 1.4699707)
+position = Vector2(0, 41.484985)
 scale = Vector2(0.5365854, 0.46555033)
 shape = SubResource("RectangleShape2D_og2xu")
 
@@ -24,5 +27,24 @@ shape = SubResource("RectangleShape2D_og2xu")
 [node name="DetectionArea" type="CollisionShape2D" parent="EnemyDetectionArea" unique_id=940897086]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5m1cd")
+disabled = true
+
+[node name="LeftRay" type="RayCast2D" parent="." unique_id=2130063805]
+position = Vector2(-35, 49)
+target_position = Vector2(0, 7)
+hit_from_inside = true
+
+[node name="RightRay" type="RayCast2D" parent="." unique_id=559337598]
+position = Vector2(35, 49)
+target_position = Vector2(0, 7)
+hit_from_inside = true
+
+[node name="LeftWallRay" type="RayCast2D" parent="." unique_id=1164009293]
+position = Vector2(-34, 44)
+target_position = Vector2(-2, 0)
+
+[node name="RightWallRay" type="RayCast2D" parent="." unique_id=1415472597]
+position = Vector2(34, 44)
+target_position = Vector2(2, 0)
 
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
