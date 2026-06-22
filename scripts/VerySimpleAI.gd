@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var speed: float = 80
-var gravity = 15
+var gravity = 12
 
 @export_range(-1, 1) var dir: int = 1
 

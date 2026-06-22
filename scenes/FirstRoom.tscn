@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://coevnjbh42xg"]
 
-[ext_resource type="Texture2D" uid="uid://cy50d1ydklcmg" path="res://assets/platform placeholder.png" id="1_4vge2"]
-[ext_resource type="PackedScene" uid="uid://dmqsldlk1yup6" path="res://scenes/enemy.tscn" id="2_rnjyy"]
-[ext_resource type="PackedScene" uid="uid://ccalcpwyyiaed" path="res://scenes/player.tscn" id="3_rnjyy"]
-[ext_resource type="Texture2D" uid="uid://7vtij40xj408" path="res://assets/heart.png" id="4_4vge2"]
+[ext_resource type="Texture2D" uid="uid://cy50d1ydklcmg" path="res://assets/platform placeholder.png" id="1_p2gis"]
+[ext_resource type="PackedScene" uid="uid://dmqsldlk1yup6" path="res://scenes/enemy.tscn" id="2_fbk86"]
+[ext_resource type="PackedScene" uid="uid://ccalcpwyyiaed" path="res://scenes/player.tscn" id="3_wcunh"]
+[ext_resource type="Texture2D" uid="uid://7vtij40xj408" path="res://assets/heart.png" id="4_let00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go7kn"]
-size = Vector2(20, 275)
+size = Vector2(20.052185, 277.5)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_og2xu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04qyp"]
-atlas = ExtResource("4_4vge2")
+atlas = ExtResource("4_let00")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7wrs"]
@@ -20,13 +20,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_04qyp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fws66"]
-atlas = ExtResource("4_4vge2")
+atlas = ExtResource("4_let00")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hh0fu"]
@@ -35,79 +35,79 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fws66")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [node name="Root" type="Node2D" unique_id=1462337539]
 position = Vector2(144, 200)
-metadata/_edit_group_ = true
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1345941318]
 top_level = true
 position = Vector2(521, 781)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=737113337]
+position = Vector2(2.0480347, -1.25)
 scale = Vector2(78.49039, 1)
 shape = SubResource("RectangleShape2D_go7kn")
 
 [node name="placeholder" type="Sprite2D" parent="floor" unique_id=54740409]
 material = SubResource("CanvasItemMaterial_og2xu")
 scale = Vector2(12.828668, 1.4560012)
-texture = ExtResource("1_4vge2")
+texture = ExtResource("1_p2gis")
 offset = Vector2(0, 0.5)
 
-[node name="Enemy" parent="." unique_id=1010637737 instance=ExtResource("2_rnjyy")]
-position = Vector2(961, 385)
+[node name="Enemy" parent="." unique_id=1010637737 instance=ExtResource("2_fbk86")]
+position = Vector2(961, 390)
 
-[node name="Player" parent="." unique_id=214216069 instance=ExtResource("3_rnjyy")]
+[node name="Player" parent="." unique_id=214216069 instance=ExtResource("3_wcunh")]
 position = Vector2(-60, 411)
 
-[node name="health_bar" type="CanvasLayer" parent="." unique_id=1265505436]
+[node name="healthBar" type="CanvasLayer" parent="." unique_id=1265505436]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="health_bar" unique_id=1776830293]
+[node name="HBoxContainer" type="HBoxContainer" parent="healthBar" unique_id=1776830293]
 offset_left = 35.0
 offset_top = 42.0
 offset_right = 127.0
 offset_bottom = 82.0
 scale = Vector2(1.8799993, 1.8000009)
 
-[node name="heart" type="TextureRect" parent="health_bar/HBoxContainer" unique_id=318703456]
+[node name="heart" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=318703456]
 texture_filter = 1
 custom_minimum_size = Vector2(19.725, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="health_bar/HBoxContainer/heart" unique_id=1939262925]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart" unique_id=1939262925]
 sprite_frames = SubResource("SpriteFrames_j7wrs")
 
-[node name="heart3" type="TextureRect" parent="health_bar/HBoxContainer" unique_id=539847017]
+[node name="heart3" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=539847017]
 texture_filter = 1
 custom_minimum_size = Vector2(19.725, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="health_bar/HBoxContainer/heart3" unique_id=1053797033]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart3" unique_id=1053797033]
 sprite_frames = SubResource("SpriteFrames_j7wrs")
 
-[node name="heart4" type="TextureRect" parent="health_bar/HBoxContainer" unique_id=475421600]
+[node name="heart4" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=475421600]
 texture_filter = 1
 custom_minimum_size = Vector2(19.725, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="health_bar/HBoxContainer/heart4" unique_id=449538350]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart4" unique_id=449538350]
 sprite_frames = SubResource("SpriteFrames_j7wrs")
 
-[node name="heart5" type="TextureRect" parent="health_bar/HBoxContainer" unique_id=1051813340]
+[node name="heart5" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=1051813340]
 texture_filter = 1
 custom_minimum_size = Vector2(19.725, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="health_bar/HBoxContainer/heart5" unique_id=1869056133]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart5" unique_id=1869056133]
 sprite_frames = SubResource("SpriteFrames_j7wrs")
 
-[node name="heart2" type="TextureRect" parent="health_bar/HBoxContainer" unique_id=1400420259]
+[node name="heart2" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=1400420259]
 texture_filter = 1
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="health_bar/HBoxContainer/heart2" unique_id=2066303493]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart2" unique_id=2066303493]
 sprite_frames = SubResource("SpriteFrames_hh0fu")

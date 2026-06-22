@@ -1,16 +1,14 @@
 extends CharacterBody2D
 
 
-var SPEED = 250.0
-var JUMP_VELOCITY = -500.0
+@export var SPEED = 250.0
+@export var JUMP_VELOCITY = -500.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
 
-	
 	# Handle jump.
 	if Input.is_action_just_pressed("press_z") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -25,13 +23,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
-	
+
 var hearts_list : Array[TextureRect]
 var health = 5
-	
+
 func _ready() -> void:
-	var hearts_parent = $"../health_bar/HBoxContainer"
+	var hearts_parent = $"../healthBar/HBoxContainer"
 	for child in hearts_parent.get_children():
 		hearts_list.append(child)
 	print(hearts_list)
