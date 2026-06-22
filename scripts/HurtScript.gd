@@ -7,9 +7,7 @@ extends Area2D
 @onready var heart5 = get_node("/root/Root/healthBar/HBoxContainer/heart5")
 
 func _on_area_entered(body: Node2D) -> void:
-	print("1")
 	if body.name == "PlayerHitBox" or body.name == "Area2D":
-		print("2")
 		if heart.visible == true:
 			heart.visible = false
 		elif heart2.visible == true:
