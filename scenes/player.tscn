@@ -1,7 +1,43 @@
 [gd_scene format=3 uid="uid://ccalcpwyyiaed"]
 
 [ext_resource type="Script" uid="uid://b0dlr4jw600m3" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dcolu18fprwdw" path="res://assets/Untitled.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://r8p7ch3e4w1a" path="res://assets/knight_idle.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vge2"]
 size = Vector2(20, 38)
@@ -12,10 +48,14 @@ script = ExtResource("1_g2els")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1267616324]
 zoom = Vector2(2, 2)
 
-[node name="Placeholder" type="Sprite2D" parent="." unique_id=2004267316]
-position = Vector2(0, 7.1054274e-15)
-scale = Vector2(0.24390243, 0.22680403)
-texture = ExtResource("2_qhqgy")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=955628325]
+texture_filter = 1
+position = Vector2(1.7500056, 2.5000043)
+scale = Vector2(1.8515626, 1.8281249)
+sprite_frames = SubResource("SpriteFrames_fjrip")
+autoplay = "default"
+frame = 3
+frame_progress = 0.41573957
 
 [node name="Area2D" type="Area2D" parent="." unique_id=294479446]
 
