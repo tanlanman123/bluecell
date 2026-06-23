@@ -4,10 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcolu18fprwdw" path="res://assets/Untitled.png" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vge2"]
-size = Vector2(32, 44)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_og2xu"]
-size = Vector2(30, 8)
+size = Vector2(20, 38)
 
 [node name="Player" type="CharacterBody2D" unique_id=214216069]
 script = ExtResource("1_g2els")
@@ -16,16 +13,51 @@ script = ExtResource("1_g2els")
 zoom = Vector2(2, 2)
 
 [node name="Placeholder" type="Sprite2D" parent="." unique_id=2004267316]
-position = Vector2(1, 1)
-scale = Vector2(0.26016256, 0.23711324)
+position = Vector2(0, 7.1054274e-15)
+scale = Vector2(0.24390243, 0.22680403)
 texture = ExtResource("2_qhqgy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=294479446]
 
 [node name="PlayerHitBox" type="CollisionShape2D" parent="Area2D" unique_id=2006559685]
-position = Vector2(1, 2)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_4vge2")
 
-[node name="player collision" type="CollisionShape2D" parent="." unique_id=1857106137]
+[node name="PlayerSword" type="Area2D" parent="." unique_id=632809958]
 position = Vector2(1, 20)
-shape = SubResource("RectangleShape2D_og2xu")
+
+[node name="SwordRight" type="CollisionPolygon2D" parent="PlayerSword" unique_id=1083663405]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(-12.000001, 0)
+scale = Vector2(1.607143, 1)
+polygon = PackedVector2Array(16, -20, 16, -35, 29.844442, -41.999996, 30.488886, -40.999996, 31.111107, -39.999996, 31.73333, -38.999996, 32.97777, -35.999996, 33.599995, -32.999996, 34.222218, -29.999996, 34.84444, -25.999998, 35.46666, -19.999998, 35.46666, -19.999998, 34.84444, -13.999998, 34.222218, -9.999999, 33.599995, -6.999999, 32.97777, -3.999999, 31.73333, -1, 31.111107, 0, 30.488886, 1, 29.844442, 2, 16, -5)
+disabled = true
+
+[node name="SwordLeft" type="CollisionPolygon2D" parent="PlayerSword" unique_id=629504772]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(10, -40)
+rotation = 3.1415927
+scale = Vector2(1.607143, 1)
+polygon = PackedVector2Array(16, -20, 16, -35, 29.844442, -41.999996, 30.488886, -40.999996, 31.111107, -39.999996, 31.73333, -38.999996, 32.97777, -35.999996, 33.599995, -32.999996, 34.222218, -29.999996, 34.84444, -25.999998, 35.46666, -19.999998, 35.46666, -19.999998, 34.84444, -13.999998, 34.222218, -9.999999, 33.599995, -6.999999, 32.97777, -3.999999, 31.73333, -1, 31.111107, 0, 30.488886, 1, 29.844442, 2, 16, -5)
+
+[node name="SwordDown" type="CollisionPolygon2D" parent="PlayerSword" unique_id=513873623]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(-21, -24)
+rotation = 1.5707964
+scale = Vector2(1.607143, 1)
+polygon = PackedVector2Array(16, -20, 16.177774, -38, 26.75555, -51, 29.24444, -46, 31.111105, -42, 32.35555, -39, 32.97777, -35.999996, 33.599995, -32.999996, 34.222218, -29.999996, 34.84444, -25.999998, 35.46666, -19.999998, 35.46666, -19.999998, 34.84444, -13.999998, 34.222218, -9.999999, 33.599995, -6.999999, 32.97777, -3.999999, 32.35555, -1.0000019, 31.111105, 2.999998, 29.24444, 6.999998, 26.13333, 11.999998, 16.177776, -2.000002)
+
+[node name="SwordUp" type="CollisionPolygon2D" parent="PlayerSword" unique_id=398192100]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(19, -16.000002)
+rotation = 4.712389
+scale = Vector2(1.607143, 1)
+polygon = PackedVector2Array(16, -20, 16.177774, -38, 26.75555, -51, 29.24444, -46, 31.111105, -42, 32.35555, -39, 32.97777, -35.999996, 33.599995, -32.999996, 34.222218, -29.999996, 34.84444, -25.999998, 35.46666, -19.999998, 35.46666, -19.999998, 34.84444, -13.999998, 34.222218, -9.999999, 33.599995, -6.999999, 32.97777, -3.999999, 32.35555, -1.0000019, 31.111105, 2.999998, 29.24444, 6.999998, 26.13333, 11.999998, 16.177776, -2.000002)
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="." unique_id=1834800600]
+position = Vector2(0, 19)
+polygon = PackedVector2Array(10, 3, 10, -35, -10, -35, -10, 3)

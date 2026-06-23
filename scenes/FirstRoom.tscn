@@ -73,12 +73,12 @@ offset_right = 127.0
 offset_bottom = 82.0
 scale = Vector2(1.8799993, 1.8000009)
 
-[node name="heart" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=318703456]
+[node name="heart1" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=318703456]
 texture_filter = 1
 custom_minimum_size = Vector2(19.725, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart" unique_id=1939262925]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="healthBar/HBoxContainer/heart1" unique_id=1939262925]
 sprite_frames = SubResource("SpriteFrames_j7wrs")
 
 [node name="heart3" type="TextureRect" parent="healthBar/HBoxContainer" unique_id=539847017]

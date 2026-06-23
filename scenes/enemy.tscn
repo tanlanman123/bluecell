@@ -8,7 +8,7 @@
 size = Vector2(40.999996, 36.451416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go7kn"]
-size = Vector2(76, 24)
+size = Vector2(24, 18)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1010637737]
 script = ExtResource("1_md0e3")
@@ -45,7 +45,7 @@ target_position = Vector2(2, 0)
 script = ExtResource("3_4ra3w")
 
 [node name="EnemyHurtBox" type="CollisionShape2D" parent="Enemy HurtBox" unique_id=1955641186]
-position = Vector2(0, 38)
+position = Vector2(0, 41)
 shape = SubResource("RectangleShape2D_go7kn")
 
 [connection signal="area_entered" from="Enemy HurtBox" to="Enemy HurtBox" method="_on_area_entered"]
